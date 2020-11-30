@@ -1,4 +1,4 @@
-package com.luistaborda.minhasfinancas.model.entity;
+package com.luistaborda.minhasfinancas.model.enums;
 
 public enum TipoLancamento {
 

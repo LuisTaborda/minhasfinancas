@@ -1,5 +1,7 @@
 package com.luistaborda.minhasfinancas.model.entity;
 
+import com.luistaborda.minhasfinancas.model.enums.StatusLancamento;
+import com.luistaborda.minhasfinancas.model.enums.TipoLancamento;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.convert.Jsr310Converters;
