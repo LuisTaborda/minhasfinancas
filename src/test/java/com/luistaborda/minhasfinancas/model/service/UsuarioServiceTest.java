@@ -5,6 +5,7 @@ import com.luistaborda.minhasfinancas.exception.RegraNegocioException;
 import com.luistaborda.minhasfinancas.model.entity.Usuario;
 import com.luistaborda.minhasfinancas.model.repository.UsuarioRepository;
 import com.luistaborda.minhasfinancas.services.UsuarioService;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,18 +18,20 @@ import org.springframework.test.context.junit4.SpringRunner;
 @ActiveProfiles("test")
 public class UsuarioServiceTest {
 
-    @Autowired UsuarioService usuarioService;
-    @Autowired UsuarioRepository usuarioRepository;
+    @Autowired
+    UsuarioService usuarioService;
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     @Test(expected = Test.None.class)
-    public void deveValidarEmail(){
+    public void deveValidarEmail() {
         usuarioRepository.deleteAll();
 
         usuarioService.validarEmail("email@email.com");
     }
 
     @Test(expected = RegraNegocioException.class)
-    public void deveLancarErroQuandoExistirEmailCadastro(){
+    public void deveLancarErroQuandoExistirEmailCadastro() {
 
         Usuario usuario = Usuario.builder().nome("usuario").email("email@email.com").build();
 
@@ -37,4 +40,5 @@ public class UsuarioServiceTest {
         usuarioService.validarEmail("email@email.com");
 
     }
+
 }
