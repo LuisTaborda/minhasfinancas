@@ -8,6 +8,8 @@ import javax.persistence.*;
 @Table(name = "usuario", schema = "financas")
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Usuario {
 
     @Id
