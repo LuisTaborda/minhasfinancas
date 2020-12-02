@@ -4,7 +4,7 @@ import com.luistaborda.minhasfinancas.model.enums.StatusLancamento;
 import com.luistaborda.minhasfinancas.model.enums.TipoLancamento;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.convert.Jsr310Converters;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -31,7 +31,7 @@ public class Lancamento {
     @Column(name = "ano")
     private Integer ano;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
@@ -39,7 +39,7 @@ public class Lancamento {
     private BigDecimal valor;
 
     @Column(name = "data_cadastro")
-    @Convert(converter = Jsr310Converters.LocalDateTimeToDateConverter.class)
+    @Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
     private LocalDate dataCadastro;
 
     @Column(name = "tipo")
@@ -49,5 +49,6 @@ public class Lancamento {
     @Column(name = "status")
     @Enumerated(value = EnumType.STRING)
     private StatusLancamento status;
+
 
 }
