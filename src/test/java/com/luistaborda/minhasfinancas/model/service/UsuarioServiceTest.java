@@ -28,7 +28,7 @@ import java.util.Optional;
 public class UsuarioServiceTest {
 
     @MockBean UsuarioRepository usuarioRepository;
-    @SpyBean UsuarioService usuarioService;
+    @SpyBean UsuarioServiceImpl usuarioService;
 
     @Test(expected = Test.None.class)
     public void deveSalvarUmUsuario(){
